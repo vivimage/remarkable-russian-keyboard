@@ -22,6 +22,19 @@ To remove it, delete that file and restart xovi.
 The stock keyboard lists every layout it finds under `:/misc/keyboards/<locale>/keyboard_layout.json`
 in its Qt resources. The `.rcc` file adds one more entry, `ru_RU`. No stock file is replaced or patched.
 
+## Quick language switch (separate, optional)
+
+`keyboardQuickSwitch.qmd` changes the globe key on the on-screen keyboard. It works with any pair of languages and does not need the Russian layout.
+
+- Tap the globe key to switch to the language you used before the current one.
+- Hold the globe key to open the full language list.
+- Until two languages have been used, a tap opens the list as before.
+
+Copy `keyboardQuickSwitch.qmd` to `/home/root/xovi/exthome/qt-resource-rebuilder/` and restart xovi. Delete the file and restart to remove it.
+
+The previous language is remembered in `/home/root/.config/remarkable/keyboard-previous-language`.
+The file is a hashed qmldiff patch for `KeyboardPanel.qml`, written for OS 3.28 and tested on a Paper Pure with OS 3.28.0.172.
+
 ## Build
 
 ```sh
